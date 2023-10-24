@@ -5,44 +5,16 @@ body {
     padding: 0;
 }
 
-#sidebar {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.3s;
-    padding-top: 60px;
-}
-
-#sidebar a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-#sidebar .close-btn {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    font-size: 36px;
-}
-
-#main-content {
-    transition: margin-left .3s;
-    padding: 16px;
+header, nav ul, nav li, nav a, .btn, .main, .hero, .featured-products, .product, .product img, .product .btn, .modal, .newsletter, footer, #sidebar, #sidebar a, #sidebar .close-btn {
+    box-sizing: border-box;
 }
 
 header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: #2c3e50;  /* so the content below doesn't show through */
+    background-color: #2c3e50;
+    width: 100%;
 }
 
 nav ul {
@@ -50,11 +22,12 @@ nav ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    text-align: center;
 }
 
 nav li {
-    float: left;
-    margin-right: 15px;
+    display: inline;
+    margin-right: 5px;
 }
 
 nav a {
@@ -64,8 +37,9 @@ nav a {
     text-transform: uppercase;
     font-weight: bold;
 }
+
 .btn {
-    background-color: #e74c3c;  /* Accent Color */
+    background-color: #e74c3c;
     color: #ffffff;
     padding: 10px 20px;
     border: none;
@@ -77,9 +51,8 @@ nav a {
 }
 
 .btn:hover {
-    background-color: #c0392b;  /* Darken on hover */
+    background-color: #c0392b;
 }
-
 
 .main {
     padding: 20px;
@@ -104,6 +77,7 @@ nav a {
 .featured-products {
     background-color: #ffffff;
     padding: 20px;
+    text-align: center;
 }
 
 .product {
@@ -111,28 +85,8 @@ nav a {
     margin: 10px;
     padding: 20px;
     border-radius: 5px;
-    float: left;
-    width: 30%;
     box-sizing: border-box;
-}
-.btn, .product img {
     transition: transform 0.3s ease-in-out;
-}
-
-.btn:hover, .product img:hover {
-    transform: scale(1.05);  /* Slightly enlarge the element on hover */
-}
-.product {
-    background-color: #ffffff;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: box-shadow 0.3s ease-in-out;
-}
-
-.product:hover {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .product img {
@@ -166,7 +120,7 @@ nav a {
 .newsletter {
     background-color: #2c3e50;
     color: #ecf0f1;
-    padding: 20px;
+    padding: 10px;  /* Reduced padding from 20px to 10px */
     text-align: center;
 }
 
@@ -175,6 +129,8 @@ nav a {
     border: none;
     border-radius: 5px;
     margin-right: 10px;
+    width: 70%;
+    font-size: 14px;  /* Adjust font size if necessary */
 }
 
 .newsletter button {
@@ -185,20 +141,74 @@ nav a {
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 14px;  /* Adjust font size if necessary */
 }
 
 footer {
     background-color: #2c3e50;
     color: #ecf0f1;
-    text-align: center;
     padding: 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    text-align: center;
 }
 
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 
-.sidebar {
+.footer-section {
+    margin-bottom: 20px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-section li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: #ecf0f1;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    margin: 0 5px;
+    color: #ecf0f1;
+    font-size: 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: #3498db;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+    }
+}
+
+/* Sidebar styles */
+#sidebar {
     height: 100%;
     width: 0;
     position: fixed;
@@ -210,7 +220,7 @@ footer {
     padding-top: 60px;
 }
 
-.sidebar a {
+#sidebar a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
@@ -219,10 +229,34 @@ footer {
     transition: 0.3s;
 }
 
-.sidebar .close-btn {
+#sidebar .close-btn {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+}
+
+/* Tablet and Desktop Styles */
+@media (min-width: 768px) {
+    nav li {
+        float: left;
+        margin-right: 15px;
+    }
+    .product {
+        float: left;
+        width: 30%;
+        margin: 1%;
+    }
+    .newsletter input {
+        width: auto; /* Reset to auto width */
+    }
+}
+
+/* Additional styles for smaller screens */
+@media (max-width: 480px) {
+    .newsletter input, .newsletter button {
+        width: 100%;  /* Set width to 100% for smaller screens */
+        margin-bottom: 10px;  /* Add some margin below each element */
+    }
 }
