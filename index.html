@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div id="sidebar" class="sidebar">
+        <a href="#" class="close-btn" onclick="toggleSidebar()">×</a>
+        <ul>
+            <li><a href="#">Category 1</a></li>
+            <li><a href="#">Category 2</a></li>
+            <li><a href="#">Category 2</a></li>
+            <li><a href="#">Category 2</a></li>
+        </ul>
+    </div>
+
+    <div id="main-content">
+        <button onclick="toggleSidebar()">☰ Open Sidebar</button>
+
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+    <div id="sidebar" class="sidebar">
+        <a href="#" class="close-btn" onclick="closeSidebar()">×</a>
+        <!-- Sidebar content like navigation links, search bar, etc. -->
+        <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <!-- ... other links -->
+        </ul>
+    </div>
+    <button onclick="openSidebar()">Open Sidebar</button>
+    
+    <main>
+        <section class="hero">
+            <h1>Welcome to our E-commerce Site</h1>
+            <p>Shop the latest trends in fashion and accessories</p>
+            <a href="#" class="btn">Shop Now</a>
+        </section>
+        <button class="btn">
+            <i class="fas fa-shopping-cart"></i> Add to Cart
+        </button>
+        <section class="featured-products">
+            <h2>Featured Products</h2>
+            <div class="product">
+                <img src="product1.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>$19.99</p>
+                <a href="#" class="btn">Add to Cart</a>
+            </div>
+            <div class="product">
+                <img src="product2.jpg" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>$29.99</p>
+                <a href="#" class="btn">Add to Cart</a>
+            </div>
+            <div class="product">
+                <img src="product3.jpg" alt="Product 3">
+                <h3>Product 3</h3>
+                <p>$39.99</p>
+                <a href="#" class="btn">Add to Cart</a>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <h2>Subscribe to our Newsletter</h2>
+            <form>
+                <input type="email" placeholder="Enter your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 E-commerce Site</p>
+    </footer>
+</body>
+</html>
+<!-- Quick View Modal -->
+<div id="quick-view" class="modal">
+    <div class="modal-content">
+        <!-- Modal content goes here -->
+    </div>
+</div>
+
+<input type="search" list="suggestions">
+<datalist id="suggestions">
+    <option value="Product 1">
+    <option value="Product 2">
+    <option value="Product 3">
+    <!-- ... other products -->
+</datalist>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        anime({
+            targets: '.hero',
+            translateY: [-200, 0],  /* animate from 200px above to its original position */
+            opacity: [0, 1],  /* fade in */
+            duration: 800,
+            easing: 'easeOutExpo',
+            delay: 500  /* delay animation by 500ms */
+        });
+    });
+
+  // Function to open the modal
+  function openQuickView() {
+        document.getElementById('quick-view').style.display = 'block';
+    }
+
+    // Function to close the modal
+    function closeQuickView() {
+        document.getElementById('quick-view').style.display = 'none';
+    }
+
+    function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            var mainContent = document.getElementById("main-content");
+            if (sidebar.style.width === "250px") {
+                sidebar.style.width = "0";
+                mainContent.style.marginLeft = "0";
+            } else {
+                sidebar.style.width = "250px";
+                mainContent.style.marginLeft = "250px";
+            }
+        }
+
+</script>
